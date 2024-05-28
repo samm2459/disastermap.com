@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DisMap</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="logodismap.png" type="image/x-icon" sizes="72x72">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <nav>
+        <div class="layar-dalam">
+            <div class="logo">
+                <a href=""><img src="DisasterMap2.png" class="putih" /></a>
+            </div>
+            <div class="menu">
+                <a href="#" class="tombol-menu">
+                    <span class="garis"></span>
+                    <span class="garis"></span>
+                    <span class="garis"></span>
+                </a>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="layar-penuh">
+        <header id="home">
+            <div class="overlay"></div>
+            <video autoplay muted loop>
+                <source src="bg1.mp4" type="video/mp4" />
+            </video>
+            <div class="intro">
+                <h3>DISASTER MAPS</h3>
+                <p>
+                    WebGIS untuk mitigasi bencana di wilayah Banten
+                </p>
+            </div>
+        </header>
+        <main>
+            <section id="about">
+                <div class="layar-dalam">
+                    <h3>About</h3>
+                    <div class="konten-isi">
+                        <p>
+                            <p style="font-size: 25px;">Selamat datang di DisasterMap!</p>
+                            <p>Sebuah platform untuk informasi dan sumber daya mitigasi bencana di wilayah Banten. Kami berkomitmen untuk meningkatkan kesadaran dan kesiapsiagaan masyarakat terhadap berbagai ancaman alam seperti gempa bumi, tsunami, gunung meletus,dan lain-lain.
+                            Bencana alam (bahasa Inggris: Natural disaster), adalah suatu peristiwa yang terbagi menjadi dua berdasarkan pemicunya. Pertama, bencana yang terjadi secara alami khususnya yang sering terjadi di Provinsi Banten dapat berupa banjir, letusan gunung berapi, gempa bumi, tsunami.</p>
+                            <p>
+                                Tujuan utama WEB DisMap ini adalah memberikan informasi yang akurat dan terkini mengenai risiko bencana serta langkah-langkah preventif yang dapat diambil oleh individu dan komunitas.
+                                kami memberikan beberapa informasi mengenai situasi bencana dan upaya penanggulangannya, serta menyediakan platform untuk berbagi informasi dan pengalaman antar komunitas. Dengan pendekatan ini, kami berharap dapat membangun masyarakat Banten yang lebih tangguh dan siap menghadapi bencana.
+                            </p>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="abuabu" id="support">
+                <div class="layar-dalam support">
+                    <div class="img-container">
+                        <img src="gunung meletus.jpg"> 
+                        <h6><a href="https://bpbd.tanjungbalaikota.go.id/jenis-bencana/gunung-meletus/">Gunung Meletus</a></h6>
+                        <p>
+                            Gunung meletus merupakan peristiwa yang terjadi akibat endapan magma di dalam perut bumi yang didorong keluar oleh gas yang bertekanan tinggi. Magma adalah cairan pijar yang terdapat di dalam lapisan bumi dengan suhu yang sangat tinggi, yakni diperkirakan lebih dari 1.000 °C.  
+                        </p>
+
+                    </div>
+                    <div class="img-container">
+                        <img src="tsunami.jpg">
+                        <h6><a href="https://bpbd.ntbprov.go.id/pages/tsunami">Tsunami</a></h6>
+                        <p>
+                            Tsunami merupakan gelombang air laut besar yang dipicu oleh pusaran air bawah laut karena pergeseran lempeng, tanah longsor, erupsi gunungapi, dan jatuhnya meteor. Tsunami dapat bergerak dengan kecepatan sangat tinggi dan dapat mencapai daratan dengan ketinggian gelombang hingga 30 meter.
+                        </p>
+                    </div>
+                    <div class="img-container">
+                        <img src="gempa bumi.jpg">
+                        <h6><a href="https://bpbd.ntbprov.go.id/pages/gempa-bumi">Gempa Bumi</a></h6>
+                        <p>
+                            Gempa bumi adalah getaran atau getar-getar yang terjadi di permukaan bumi akibat pelepasan energi dari dalam secara tiba-tiba yang menciptakan gelombang seismik. Gempa Bumi biasa disebabkan oleh pergerakan kerak bumi (lempeng Bumi).Gempa Bumi diukur dengan menggunakan alat Seismometer.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="map">
+                <div class="layar-dalam">
+                    <h3>Map</h3>
+                    <p>
+                        <a href="info.html" class="tombol">Info Selengkapnya</a>
+                    </p>
+                    <p class="ringkasan">
+                       info selengkapnya untuk melihat map lebih lanjut
+                    </p>
+                </div>
+                
+            </section>
+            <section id="solution">
+                <div class="layar-dalam">
+                    <h3>Solution</h3>
+                    <div class="solution-grid">
+                        <div class="grid-item">
+                            <h5>Gunung Meletus</h5>
+                            <img src="solution 1.jpg" alt="Gunung Meletus">
+                            <div class="solution-points">
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gunung-meletus-pra">Pra-Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gunung-meletus-saat">Saat Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gunung-meletus-pasca">Pasca Bencana</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h5>Tsunami</h5>
+                            <img src="solution 2.jpg" alt="Tsunami">
+                            <div class="solution-points">
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="tsunami-pra">Pra-Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="tsunami-saat">Saat Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="tsunami-pasca">Pasca Bencana</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h5>Gempa Bumi</h5>
+                            <img src="solution 3.jpg" alt="Gempa Bumi">
+                            <div class="solution-points">
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gempa-pra">Pra-Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gempa-saat">Saat Bencana</h6>
+                                </div>
+                                <div class="solution-point">
+                                    <h6 class="popup-trigger" data-popup="gempa-pasca">Pasca Bencana</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-button">&times;</span>
+                    <div id="popup-text"></div>
+                </div>
+            </div>
+            
+            
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <!-- Content dari solution section akan dimasukkan di sini -->
+    </div>
+    <center>
+    <button id="close-button">Tutup</button>
+     </center>
+</div>
+            
+
+<section id="news">
+    <div class="layar-dalam">
+        <h3>News</h3>
+        <div id="news-container" class="news-container"></div>
+    </div>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+  const newsArticles = [
+      {
+          title: "Status Gunung Anak Krakatau Turun ke Level Waspada",
+          link: "https://www.cnnindonesia.com/nasional/20240420093352-20-1088352/status-gunung-anak-krakatau-turun-ke-level-waspada",
+          imageUrl: "gunung.jpeg",
+          description: "Jakarta CNN Indonesia -- Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) menurunkan status Gunung Anak Krakatau dari semula Siaga (level III) menjadi Waspada (Level II) pada Sabtu (20/4) tengah malam."
+      },
+      {
+          title: "Gempa M 4,8 Terjadi di Sumur Banten",
+          link: "https://news.detik.com/berita/d-7313574/gempa-m-4-8-terjadi-di-sumur-banten",
+          imageUrl: "gempa.jpeg",
+          description: "Gempa dengan magnitudo (M) 4,8 terjadi di Sumur, Pandeglang, Banten. Gempa tidak berpotensi menimbulkan tsunami. BMKG menyebut gempa terjadi pukul 15.27 WIB, Sabtu (27/4/2024). Pusat gempa berada pada kedalaman 10 kilometer."
+      }
+  ];
+
+  const newsContainer = document.getElementById('news-container');
+
+  newsArticles.forEach(article => {
+      const articleElement = document.createElement('div');
+      articleElement.classList.add('news-article');
+
+      const imageElement = document.createElement('img');
+      imageElement.src = article.imageUrl;
+
+      const titleElement = document.createElement('h4');
+      titleElement.textContent = article.title;
+
+      const descriptionElement = document.createElement('p');
+      descriptionElement.textContent = article.description;
+
+      const linkElement = document.createElement('a');
+      linkElement.textContent = 'Read more';
+      linkElement.href = article.link;
+      linkElement.target = '_blank';
+
+      articleElement.appendChild(imageElement);
+      articleElement.appendChild(titleElement);
+      articleElement.appendChild(descriptionElement);
+      articleElement.appendChild(linkElement);
+
+      newsContainer.appendChild(articleElement);
+  });
+});
+ 
+    </script>
+</section>
+
+<section id="team">
+    <div class="layar-dalam">
+        <h3>Team</h3>
+        <div class="team" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div style="border: 2px solid #bdbdbd; padding: 10px; width: 200px; text-align: center; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h6>Samuel Silaban</h6>
+                <p>Program Studi: Sistem Informasi Kelautan</p>
+                <p>Email: silabansamuel05@upi.edu</p>
+                <p>Universitas Pendidikan Indonesia</p>
+            </div>
+            <div style="border: 2px solid #ccc; padding: 10px; width: 200px; text-align: center; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h6>Lingga Diva Puspita</h6>
+                <p>Program Studi: Sistem Informasi Kelautan</p>
+                <p>Email: linggadivapuspita@upi.edu</p>
+                <p>Universitas Pendidikan Indonesia</p>
+            </div>
+            <div style="border: 2px solid #ccc; padding: 10px; width: 200px; text-align: center; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h6>Kaila Ashma' Nur Fadhilah</h6>
+                <p>Program Studi: Sistem Informasi Kelautan</p>
+                <p>Email: kaila.ashma@upi.edu</p>
+                <p>Universitas Pendidikan Indonesia</p>
+            </div>
+            <div style="border: 2px solid #ccc; padding: 10px; width: 200px; text-align: center; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h6>Faridah Wulan Sari</h6>
+                <p>Program Studi: Sistem Informasi Kelautan</p>
+                <p>Email: faridahwulan.31@upi.edu</p>
+                <p>Universitas Pendidikan Indonesia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </main>
+        <footer id="contact">
+            <div class="layar-dalam footer-content">
+                <div class="footer-section">
+                    <h5>Info</h5>
+                    <p>DisasterMap adalah platform peta bencana interaktif yang didedikasikan untuk membantu dalam mitigasi bencana di wilayah Banten. Dengan menggunakan teknologi Geographical Information System (GIS), kami menyajikan informasi terkini mengenai risiko bencana dan langkah-langkah mitigasi yang dapat diambil oleh masyarakat, pemangku kepentingan, dan penanggung jawab kebijakan.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Help</h5>
+                    <p>Butuh bantuan mengenai penggunaan Dismap?</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Ikuti Kami</h5>
+                    <a href="https://www.instagram.com/24ellll_/" target="_blank">
+                        <img src="instagramm.png" alt="Instagram" style="width: 40px; height: 40px; background-color: transparent;">
+                    </a>
+                        </a>
+                        <a href="https://www.instagram.com/dvapspt/" target="_blank">
+                            <img src="instagramm.png" alt="Instagram" style="width: 40px; height: 40px; background-color: transparent;">
+                        </a>
+                        <a href="https://www.instagram.com/akun_instagram3" target="_blank">
+                            <img src="instagramm.png" alt="Instagram" style="width: 40px; height: 40px; background-color: transparent;">
+                        </a>
+                        <a href="https://www.instagram.com/w.ulansr/" target="_blank">
+                            <img src="instagramm.png" alt="Instagram" style="width: 40px; height: 40px; background-color: transparent;">
+                        </a>
+                    </p>
+                    <p>
+                </div>
+                
+            <div class="layar-dalam">
+                <div class="copyright">&copy; 2024 DisMap ID</div>
+            </div>
+        </footer>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+    ></script>
+    <script src="javascript.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Mitigasi</title>
+  <link rel="icon" href="logodismap.png" type="image/x-icon" sizes="72x72">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      /* Properti untuk latar belakang gambar */
+      background-size: cover; /* Mengatur gambar agar mencakup seluruh area latar belakang */
+      background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+      background-attachment: fixed; /* Membuat gambar tetap saat halaman di-scroll */
+      background-position: center; /* Menyelaraskan gambar di tengah */
+      font-family: 'Times New Roman', Times, serif, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #map-container {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      height: 600px;
+      margin: auto;
+      border: 1px solid #a19b9b;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    #map {
+      flex: 1;
+      height: 100%;
+    }
+
+    #sidebar {
+      flex: 0 0 300px; /* Lebar samping */
+      background-color: #f4f4f400;
+      padding: 10px;
+      border-left: 1px solid #535353;
+      color: #484343;
+    }
+  </style>
+</head>
+<body>
+  <div id="map-container">
+    <div id="map"></div>
+    <div id="sidebar">
+      <h2>Data Tertera pada Peta:</h2>
+      <p>- Data Terjadinya Gempa Bumi</p>
+      <p>-Jalur Evakuasi Tsunami</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-6.320105454926274, 105.8370999332314], 15);
+
+    const tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    }).addTo(map);
+
+    var customIcon = L.icon({
+      iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    // Data GeoJSON yang diberikan
+    var data = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.8370999332314, -6.320105454926274]
+            },
+            "properties": {
+                "name": "Puskesmas Carita",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://nasional.tempo.co/read/1158433/menteri-nila-puskesmas-carita-tangani-232-korban-tsunami-banten' target='_blank'><b>Puskesmas Carita</b></a><p>6°18'37.6\"S 105°50'42.7\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.5839178782765, -6.661543317585291]
+            },
+            "properties": {
+                "name": "Kantor Desa Kertajaya",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://www.beritasatu.com/news/529714/korban-tsunami-di-desa-kertajaya-masih-bertahan-di-perbukitan' target='_blank'><b>Kantor Desa KertaJaya</b></a><p>6°41'00.3\"S 105°34'06.8\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.8393147289307, -6.319572899183976]
+            },
+            "properties": {
+                "name": "Kantor Kecamatan Carita",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://regional.kompas.com/read/2018/12/23/14465201/berita-foto-ada-kabar-tsunami-susulan-di-carita-banten-warga-berhamburan' target='_blank'><b>Kecamatan Carita</b></a><p>6°19'10.46\"S 105°50'21.53\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.8345455863172, -6.329787835671814]
+            },
+            "properties": {
+                "name": "Mesjid Jami Pamatang",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://regional.kompas.com/read/2018/12/23/14465201/berita-foto-ada-kabar-tsunami-susulan-di-carita-banten-warga-berhamburan' target='_blank'><b>Masjid Jami Pamatang</b></a><p>6°19'47.24\"S 105°50'4.36\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.8373818051474, -6.318413970408631]
+            },
+            "properties": {
+                "name": "Masjid Jami Al Barokah",
+                "styleUrl": "#m_ylw-pushpin",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://www.researchgate.net/publication/376510667_Determination_of_Tsunami_Evacuation_Shelters_and_Routes_Based_on_the_Historical_Tsunami_of_Anak_Krakatau_Volcano_in_the_Coast_of_Carita_Village_Banten' target='_blank'><b>Masjid Jami Al Barokah</b></a><p>6°19'6.29\"S 105°50'14.57\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.5076500255267, -6.777166808183348]
+            },
+            "properties": {
+                "name": "Masjid Jami Al Mujtahdin",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://www.bbc.com/indonesia/indonesia-46663539' target='_blank'><b>Masjid Jami Al Mujtahdin</b></a><p>6°46'37.80\"S 105°30'27.54\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.5100131727622, -6.788217228937277]
+            },
+            "properties": {
+                "name": "Pondok Pesantren Nurul Jannah Albantani",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://www.waze.com/id/live-map/directions/id/daerah-khusus-ibukota-jakarta/pondok-pesantren-nurul-jannah?to=place.ChIJO_9vC7uMaS4RbYj4b-ajwOc' target='_blank'><b>Pondok Pesantren Nurul Jannah Albantani</b></a><p>6°47'17.58\"S 105°30'36.05\"E</p><p>Lokasi Keberadaan Tempat Tersebut</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.5080224893071, -6.787743191586654]
+            },
+            "properties": {
+                "name": "Pondok Pesantren Tarbiyatus Sibyan",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png",
+                "popupContent": "<a href='https://www.google.com/maps/place/Pondok+Pesantren+Tarbiyatus+Shibyan/@-6.1224974,106.0879146,15z/data=!4m2!3m1!1s0x0:0x416fefd1e0d3dc4e?sa=X&ved=1t:2428&ictx=111' target='_blank'><b>Pondok Pesantren Tarbiyatus Sibyan</b></a><p>6°47'15.88\"S 105°30'28.88\"E</p><p>Tempat Evakuasi Untuk Bencana Alam</p>"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [105.5830143350215, -6.659243280499417]
+            },
+            "properties": {
+                "name": "Kantor Kecamatan Sumur",
+                "styleUrl": "#msn_grn-circle",
+                "icon-scale": 1.1,
+                "icon-offset": [32, 1],
+                "icon-offset-units": ["pixels", "pixels"],
+                "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png"
+            }
+        },
+        // Feature for Gempa Banten Januari 2022
+        {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [104.5965931850718, -7.37055240027852, 0]
+      },
+      "properties": {
+        "name": "Gempa Banten Januari 2022",
+        "styleUrl": "#msn_earthquake",
+        "icon-scale": 1.2,
+        "icon-offset": [0.5, 0],
+        "icon-offset-units": ["fraction", "fraction"],
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/earthquake.png",
+        "popupContent": "<a href='https://m.youtube.com/watch?v=lxfRDHvXXRE](https://m.youtube.com/watch?v=lxfRDHvXXRE)' target='_blank'><b>Gempa Banten Januari 2022</b></a><p>7.21° LS, 105.05° BT</p><p>Kekuatan: M 6.6</p><p>Kedalaman: 40 km</p><p>Info dan Berita Seputar Bencana Alam Tersebut</p>"
+            }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [105.7684254982099, -7.67749301768091, 0]
+      },
+      "properties": {
+        "name": "Gempa Banten Februari 2024",
+        "styleUrl": "#msn_earthquake",
+        "icon-scale": 1.2,
+        "icon-offset": [0.5, 0],
+        "icon-offset-units": ["fraction", "fraction"],
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/earthquake.png",
+        "popupContent": "<a href='https://vsi.esdm.go.id/](https://vsi.esdm.go.id/)' target='_blank'><b>Gempa Banten Februari 2024</b></a><p>7.61° LS, 105.9° BT</p><p>Kekuatan: M 5.7</p><p>Kedalaman: 10 km</p><p>Info dan Berita Seputar Bencana Alam Tersebut</p>"
+            }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.5653539970217, -6.131497135696394, 0]
+      },
+      "properties": {
+        "name": "Gempa Tangerang Mei 2024",
+        "styleUrl": "#msn_earthquake",
+        "icon-scale": 1.2,
+        "icon-offset": [0.5, 0],
+        "icon-offset-units": ["fraction", "fraction"],
+        "icon": "http://maps.google.com/mapfiles/kml/shapes/earthquake.png",
+        "popupContent": "<a href='https://news.detik.com/berita/d-7341694/gempa-m-4-3-terjadi-di-tangerang-kedalaman-248-km](https://news.detik.com/berita/d-7341694/gempa-m-4-3-terjadi-di-tangerang-kedalaman-248-km)' target='_blank'><b>Gempa Banten Februari 2024</b></a><p>7.61° LS, 105.9° BT</p><p>Kekuatan: M 5.7</p><p>Kedalaman: 10 km</p><p>Info dan Berita Seputar Bencana Alam Tersebut</p>"
+            }
+    }
+  ]
+}
+
+    var lineData = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [105.51004111562, -6.788023068419588],
+          [105.5100148944424, -6.788351535864464],
+          [105.5095054640045, -6.788291466908861],
+          [105.508895700001, -6.788224182347512],
+          [105.5088289278607, -6.788181279587304],
+          [105.5087721187296, -6.788066133128312],
+          [105.50862872907, -6.788078587057694],
+          [105.5082238758997, -6.788159558442797],
+          [105.5079645519733, -6.787896446724218],
+          [105.5077385941355, -6.787546036563207],
+          [105.5076639070104, -6.787344062976437],
+          [105.5076000829358, -6.787089225004301],
+          [105.5074931113037, -6.786665748786143],
+          [105.5074404397679, -6.786575568338765],
+          [105.5072924112908, -6.786477490186688],
+          [105.5071578862736, -6.786448371089167],
+          [105.5069932412654, -6.786357542277517],
+          [105.5068807466334, -6.786263698879897],
+          [105.5067632028166, -6.786189323490155],
+          [105.5064412239329, -6.786217052994989],
+          [105.506234963761, -6.786255223877051],
+          [105.506088495973, -6.786241027068733],
+          [105.5058606281867, -6.786151676616114],
+          [105.5056669473578, -6.78605233127985],
+          [105.5055031984844, -6.786053987214194],
+          [105.5047558716795, -6.786005282764672],
+          [105.5047475842782, -6.785479015529401],
+          [105.5045627674734, -6.785012348265072],
+          [105.5044701615666, -6.78477683302002],
+          [105.5043623220185, -6.784479123253843],
+          [105.504056155878, -6.783678690320698],
+          [105.504059460104, -6.783243970168764],
+          [105.5041017362037, -6.782919925682562],
+          [105.5042218720268, -6.782586373423031],
+          [105.5042529103957, -6.782345662854273],
+          [105.504221134948, -6.782194918901739]
+        ]
+      },
+      "properties": {
+        "name": "Rute Perjalanan",
+        "color": "#ff7800",
+        "weight": 5,
+        "opacity": 0.65
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [105.5050488288011, -6.774702713846344],
+          [105.5055457006053, -6.774942488933391],
+          [105.5057377378369, -6.774825117718454],
+          [105.5059328495701, -6.774805763844905],
+          [105.5057437476446, -6.774824678657057],
+          [105.5055483507963, -6.774945331333831],
+          [105.5056819756322, -6.775381869105725],
+          [105.5056527794574, -6.775769360495652],
+          [105.5057871726124, -6.77608534866348],
+          [105.5058966749104, -6.776339723728108],
+          [105.5060000952614, -6.776547730954907],
+          [105.5060806883876, -6.776622566725884],
+          [105.5059037453374, -6.776913728666996],
+          [105.5056990005185, -6.776705952596265],
+          [105.5054361538168, -6.776554536434871],
+          [105.5053023535208, -6.776496259412495],
+          [105.5052780400714, -6.776138857914136],
+          [105.5052650745273, -6.776056610377316],
+          [105.5049642435215, -6.776017752464324],
+          [105.5048394279463, -6.775734941377127],
+          [105.5047654753675, -6.77565129131027],
+          [105.5048206990507, -6.775178331410392],
+          [105.5049044158301, -6.774700778152517],
+          [105.5049646585572, -6.774450487184581],
+          [105.5048691219046, -6.77485663742831],
+          [105.5047883130787, -6.775429858783511],
+          [105.5047680413015, -6.775653971173453],
+          [105.504839431538, -6.775740127305302],
+          [105.5049668275585, -6.776015339661749],
+          [105.5052632457217, -6.776058296665254],
+          [105.5052749711689, -6.776134958571908],
+          [105.5053026659283, -6.776495705957448],
+          [105.505433177464, -6.776553069621063],
+          [105.5056993688477, -6.776709392348152],
+          [105.5059046278132, -6.776915170431469],
+          [105.5064665854979, -6.777172220116873],
+          [105.5068738794156, -6.777246954874611],
+          [105.5073253882261, -6.77719179451714],
+          [105.5076459583479, -6.777177399808555]
+        ]
+      },
+      "properties": {
+        "name": "Rute Perjalanan 2",
+        "color": "#00ff7f",
+        "weight": 2,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [105.5050488288011, -6.774702713846344, 0],
+          [105.5055457006053, -6.774942488933391, 0],
+          [105.5057377378369, -6.774825117718454, 0],
+          [105.5059328495701, -6.774805763844905, 0],
+          [105.5057437476446, -6.774824678657057, 0],
+          [105.5055483507963, -6.774945331333831, 0],
+          [105.5056819756322, -6.775381869105725, 0],
+          [105.5056527794574, -6.775769360495652, 0],
+          [105.5057871726124, -6.77608534866348, 0],
+          [105.5058966749104, -6.776339723728108, 0],
+          [105.5060000952614, -6.776547730954907, 0],
+          [105.5060806883876, -6.776622566725884, 0],
+          [105.5059037453374, -6.776913728666996, 0],
+          [105.5056990005185, -6.776705952596265, 0],
+          [105.5054361538168, -6.776554536434871, 0],
+          [105.5053023535208, -6.776496259412495, 0],
+          [105.5052780400714, -6.776138857914136, 0],
+          [105.5052650745273, -6.776056610377316, 0],
+          [105.5049642435215, -6.776017752464324, 0],
+          [105.5048394279463, -6.775734941377127, 0],
+          [105.5047654753675, -6.77565129131027, 0],
+          [105.5048206990507, -6.775178331410392, 0],
+          [105.5049044158301, -6.774700778152517, 0],
+          [105.5049646585572, -6.774450487184581, 0],
+          [105.5048691219046, -6.77485663742831, 0],
+          [105.5047883130787, -6.775429858783511, 0],
+          [105.5047680413015, -6.775653971173453, 0],
+          [105.504839431538, -6.775740127305302, 0],
+          [105.5049668275585, -6.776015339661749, 0],
+          [105.5052632457217, -6.776058296665254, 0],
+          [105.5052749711689, -6.776134958571908, 0],
+          [105.5053026659283, -6.776495705957448, 0],
+          [105.505433177464, -6.776553069621063, 0],
+          [105.5056993688477, -6.776709392348152, 0],
+          [105.5059046278132, -6.776915170431469, 0],
+          [105.5064665854979, -6.777172220116873, 0],
+          [105.5068738794156, -6.777246954874611, 0],
+          [105.5073253882261, -6.77719179451714, 0],
+          [105.5076459583479, -6.777177399808555, 0]
+        ]
+      },
+      "properties": {
+        "name": "Rute Perjalanan 2",
+        "styleUrl": "#msn_ylw-pushpin",
+        "stroke-opacity": 1,
+        "stroke": "#00ff7f",
+        "stroke-width": 2,
+        "icon-scale": 1.1,
+        "icon-offset": [20, 2],
+        "icon-offset-units": ["pixels", "pixels"],
+        "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [105.5045324870013, -6.778826422156198, 0],
+          [105.5056026730307, -6.777479768200001, 0],
+          [105.5060579268679, -6.777759160704173, 0],
+          [105.5064558950989, -6.77787857754454, 0],
+          [105.5065698540778, -6.77741142928664, 0],
+          [105.5069972908544, -6.777445511874032, 0],
+          [105.5075984915732, -6.777493235289038, 0],
+          [105.5075979983646, -6.777179398919082, 0]
+        ]
+      },
+      "properties": {
+        "name": "Rute Perjalanan 3",
+        "styleUrl": "#msn_ylw-pushpin",
+        "stroke-opacity": 1,
+        "stroke": "#00ff7f",
+        "stroke-width": 2,
+        "icon-scale": 1.1,
+        "icon-offset": [20, 2],
+        "icon-offset-units": ["pixels", "pixels"],
+        "icon": "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+      }
+    }
+  ]
+};
+
+// Menambahkan garis ke peta
+L.geoJSON(lineData, {
+  style: function (feature) {
+    return {
+      color: feature.properties.stroke || feature.properties.color,
+      weight: feature.properties['stroke-width'] || feature.properties.weight,
+      opacity: feature.properties['stroke-opacity'] || feature.properties.opacity
+    };
+  }
+}).addTo(map);
+
+
+    // Menambahkan marker dari data GeoJSON
+    L.geoJSON(data, {
+      onEachFeature: function (feature, layer) {
+        // Menambahkan popup dengan keterangan lokasi
+        layer.bindPopup(feature.properties.popupContent);
+      },
+      pointToLayer: function (feature, latlng) {
+        // Menambahkan marker dengan ikon yang telah ditentukan
+        return L.marker(latlng, { icon: customIcon });
+      }
+      
+    }).addTo(map);
+  </script>
+</body>
+</html>
+// Menu toggle functionality
+var tombolMenu = $(".tombol-menu");
+var menu = $("nav .menu ul");
+
+function klikMenu() {
+  tombolMenu.click(function () {
+    menu.toggle();
+  });
+}
+
+$(document).ready(function () {
+  var width = $(window).width();
+  if (width < 990) {
+    klikMenu();
+  }
+});
+
+// Responsive menu handling
+$(window).resize(function () {
+  var width = $(window).width();
+  if (width > 989) {
+    menu.css("display", "block");
+  } else {
+    menu.css("display", "none");
+  }
+  klikMenu();
+});
+
+// Menu item animations
+$("nav .menu li a").click(function (e) {
+  e.preventDefault(); // Prevent default link behavior
+
+  var menuItem = $(this);
+  var targetSection = menuItem.attr("href"); // Get the target section ID
+
+  // Animate scrolling to the target section (replace with your preferred animation library)
+  $("html, body").animate({
+    scrollTop: $(targetSection).offset().top
+  }, 500); // Adjust animation duration (in milliseconds) as desired
+
+  // Add/remove active class for visual feedback (optional)
+  menuItem.parent().addClass("active").siblings().removeClass("active");
+});
+
+
+document.getElementById("close-button").onclick = function() {
+  document.getElementById("popup").style.display = "none";
+}
+
+
+// Navigation background color change on scroll
+$(document).ready(function () {
+  var scroll_pos = 0;
+  $(document).scroll(function () {
+    scroll_pos = $(this).scrollTop();
+    if (scroll_pos > 0) {
+      $("nav").addClass("putih");
+      $("nav img.hitam").show();
+      $("nav img.putih").hide();
+    } else {
+      $("nav").removeClass("putih");
+      $("nav img.hitam").hide();
+      $("nav img.putih").show();
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const triggers = document.querySelectorAll('.popup-trigger');
+  const popup = document.getElementById('popup');
+  const popupText = document.getElementById('popup-text');
+  const closeButton = document.querySelector('.close-button');
+
+  const popupContent = {
+    'gunung-meletus-pra': `
+    <ul>
+        <li>Menerima informasi PVMBG terkait perkembangan aktivitas gunung berapi</li>
+        <li>Siapkan masker dan kacamata pelindung</li>
+        <li>Mengetahui jalur evakuasi yang telah disiapkan</li>
+        <li>Mempersiapkan evakuasi lain bila letusan meluas</li>
+        <li>Siapkan dukungan logistik</li>
+    </ul>
+`,
+'gunung-meletus-saat': `
+<ul>
+    <li>Pastikan sudah berada di tempat aman</li>
+    <li>Gunakan masker dan kacamata pelindung</li>
+    <li>Selalu memerhatikan arahan dari pihak berwenang</li>
+</ul>
+`,
+'gunung-meletus-pasca': `
+<ul>
+    <li> pastikan kebutuhan dasar terus terpenuhi </li>
+    <li> tetap gunakan masker dan kacamata pelindung ketika berada di wilayah yang terdampak</li>
+    <li> memperhatikan perkembangan informasi dari pihak berwenang </li>
+    <li> waspada akan kemungkinan kedua </li>
+</ul>
+`,
+'tsunami-pra': `
+<ul>
+    <li>mengetahui informasi dari BPBD, BMKG atau PVMBG</li>
+    <li>kenali area sekitar yang terkena resiko tsunami dan kenali jalur evakuasi yang telah dibuat ketika peringatan dikeluarkan</li>
+    <li>siapkan dukungan logistik</li>
+</ul>
+`,
+'tsunami-saat': `
+<ul>
+    <li>segera berlari menuju ke tempat tinggi atau mengikuti jalur evakuasi yang sudah ditetapkan</li>
+    <li>ketika berada di kapal, jangan arahkan kapal mendekat ke pesisir</li>
+    <li>untuk mengantisipasi gelombang susulan, jangan turun ke tempat yang rendah saat gelombang pertama surut</li>
+    <li>segera mengungsi setelah ada pemberitahuan dari pihak berwajib</li>
+    <li>utamakan keselamatan, tinggalkan barang yang tidak perlu</li>
+    <li>memastikan keberadaan anggota keluarga</li>
+</ul>
+`,
+'tsunami-pasca': `
+<ul>
+    <li> pastikan telah memperoleh informasi tsunami telah berakhir</li>
+    <li> jauhi area tergenang yang mungkin terkontaminasi zat berbahaya</li>
+    <li> jauhi area terdampak yang rusak</li>
+    <li> jauhi jaringan listrik dan pipa gas</li>
+    <li> jika terluka, dapatkan perawatan di pos kesehatan terdekat</li>
+    <li> selalu periksa ketersediaan makanan</li>
+</ul>
+`,
+'gempa-pra': `
+<ul>
+    <li> mendirikan bangunan tahan gempa</li>
+    <li> kenali lokasi bangunan tempat tinggal</li>
+    <li> tempatkan perabotan pada tempat yang proposional </li>
+    <li> siapkan peralatan; senter, P3K, makanan instan, dll</li>
+    <li> periksa penggunaan listrik dan gas</li>
+    <li> catat nomor telepon penting </li>
+    <li> kenali jalur evakuasi</li>
+    <li> ikuti kegiatan simulasi mitigasi bencana gempa</li>
+</ul>
+`,
+'gempa-saat': `
+<ul>
+    <li>tetap tenang</li>
+    <li> hindari sesuatu yang akan roboh/lari ke tanah lapang</li>
+    <li> perhatikan tempat anda berdiri untuk mengantisipasi adanya retakan tanah</li>
+    <li> turun dari kendaraan dan jauhi pantai</li>
+</ul>
+`,
+'gempa-pasca': `
+<ul>
+    <li>cepat keluar dari bangunan</li>
+    <li>hindari bangunan yang berpotensi roboh</li>
+    <li>jika terluka, lakukan pertolongan pertama</li>
+</ul>
+`,
+  };
+
+  triggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+          const popupType = this.dataset.popup;
+          popupText.innerHTML = popupContent[popupType];
+          popup.style.display = 'flex';
+      });
+  });
+
+  closeButton.addEventListener('click', function() {
+      popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', function(event) {
+      if (event.target === popup) {
+          popup.style.display = 'none';
+      }
+  });
+});
+
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8370999332314,
+          -6.320105454926274,
+          0
+        ]
+      },
+      "properties": {
+        "name": "Puskesmas Carita",
+        "styleUrl": "#m_ylw-pushpin",
+        "icon-scale": 1.1,
+        "icon-offset": [
+          32,
+          1
+        ],
+        "icon-offset-units": [
+          "pixels",
+          "pixels"
+        ],
+        "icon": "http://maps.google.com/mapfiles/kml/paddle/grn-circle.png"
+      }
+    }
+  ]
+}
+* {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  line-height: 20px;
+  font-size: 17px;
+}
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.layar-dalam {
+  width: 1000px;
+  margin: auto;
+}
+.layar-penuh {
+  width: 100%;
+}
+nav {
+  z-index: 100;
+  color: #4f4a4a;
+  text-align: center;
+  position: fixed;
+  border-bottom: 1px solid #191818;
+  line-height: 60px;
+  width: 100%;
+  transition: background-color 0.5s ease;
+}
+nav.putih {
+  background-color: #fff;
+}
+nav .logo {
+  float: left;
+  position: relative;
+  line-height: 55px;
+  text-align: center;
+}
+nav .logo img {
+  vertical-align: middle;
+  width: 250px;
+}
+
+nav .menu {
+  float: right;
+  height: 60px;
+  max-width: 600px;
+}
+
+nav .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav .menu ul li {
+  list-style-type: none;
+  float: left;
+  line-height: 60px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-align: center;
+  padding: 0px 16px 0px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* pengaturan header */
+header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+header video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+header .intro {
+  z-index: 100;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+header .intro h3 {
+  max-width: 100%;
+  font-size: 50px;
+  display: block;
+  margin: 20px auto;
+  padding: 0;
+}
+
+/* Efek glowing pada teks header */
+.intro h3, #about h3 {
+text-shadow: 0 0 10px rgba(238, 255, 0, 0.7); /* Efek glowing dengan warna putih dan opacity 0.5 */
+}
+
+.tombol {
+  background-color: #c86b85;
+  height: 40px;
+  line-height: 42px;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+  font-size: 15px;
+  border-radius: 4px;
+}
+/* Warna latar saat hover */
+.menu ul li:hover {
+background-color: #ffffff85; /* Warna latar saat hover */
+}
+
+.menu ul li:hover a {
+color: #323232; /* Warna teks saat hover */
+}
+
+/* Transisi efek saat hover */
+.menu ul li a {
+transition: background-color 0.5s, color 0.10s; /* Transisi efek saat hover */
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 50%;
+  z-index: -1;
+}
+.tombol-menu {
+  position: absolute;
+  top: 1.7rem;
+  right: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+}
+.tombol-menu .garis {
+  height: 3px;
+  background-color: #fff;
+}
+
+.container {
+  height: 2000px; /* Memberikan tinggi untuk efek scroll */
+  padding-top: 20px; /* Memberikan ruang di atas untuk melihat efek sticky */
+  display: flex;
+  justify-content: center; /* Menjaga peta di tengah halaman */
+}
+
+section {
+  padding: 50px 0px 50px 0px;
+}
+section h3 {
+  font-size: 30px;
+  text-align: center;
+}
+
+section h5 {
+  font-size: 20px;
+}
+
+section h6 {
+  font-size: 20px;
+  color: #000000;
+}
+section h3::after {
+  content: "";
+  border-bottom: 5px solid #c86b85;
+  width: 52px;
+  display: block;
+  margin: 20px auto;
+}
+.img-container {
+  padding: 20px; /* Padding around the image */
+  border-radius: 12px; /* Rounded corners for the container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
+  margin: 20px auto; /* Margin to separate from other elements */
+  max-width: 100%;
+  overflow: hidden;
+  
+}
+
+.img-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth transition for image transformation */
+}
+
+.img-container::after {
+  content: ''; /* Create a pseudo-element */
+  position: absolute; /* Position relative to parent container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Initially transparent background */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  z-index: -1; /* Place behind the image */
+}
+
+.img-container:hover::after {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background on hover */
+}
+
+.img-container:hover img {
+  transform: scale(1.1); /* Scale up the image on hover */
+}
+
+.img-container:nth-child(1) {
+  background-color: #ffffff; /* Background color for the first image */
+}
+
+.img-container:nth-child(2) {
+  background-color: #ffffff; /* Background color for the second image */
+}
+
+.img-container:nth-child(3) {
+  background-color: #ffffff; /* Background color for the third image */
+}
+
+
+#solution .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Increased gap for better spacing */
+  padding: 20px; /* Added padding to the container */
+  background-color: #bdbaba; /* Light background for the container */
+  border-radius: 12px; /* Rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
+}
+
+#solution .grid-item {
+  background-color: #ffffff; /* White background for contrast */
+  padding: 20px;
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#solution .grid-item:hover {
+  transform: translateY(-5px); /* Lift the item slightly on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+.solution-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Jarak antara item */
+}
+
+
+.solution-grid {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.grid-item {
+  flex: 1;
+  text-align: center;
+  margin: 20px;
+}
+
+.grid-item img {
+  max-width: 100%; /* Atur lebar maksimum gambar */
+  height: auto; /* Biarkan tinggi gambar disesuaikan secara proporsional */
+  display: block; /* Pastikan gambar berada dalam satu baris */
+  margin: 0 auto 10px; /* Beri jarak bawah antara gambar dan teks */
+}
+
+
+.solution-point h6 {
+  background-color: #8e908e; /* Warna latar belakang untuk judul */
+  color: #fff; /* Warna teks */
+  padding: 10px 15px; /* Atur padding */
+  border-radius: 5px; /* Bulatkan sudut */
+  margin-bottom: 10px; /* Beri jarak antara setiap judul */
+  font-size: 16px;
+  transition: all 0.3s ease; /* Animasi */
+}
+
+.solution-point h6:hover {
+  background-color: #3e9e9f; /* Warna latar belakang yang berubah saat dihover */
+}
+
+
+#solution h5 {
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  color: #333; /* Darker color for the text */
+}
+
+#solution ul {
+  padding-left: 20px;
+  font-family: 'Roboto', sans-serif; /* Matching font for consistency */
+  color: #555; /* Medium gray color for list items */
+}
+
+#solution ul ul {
+  padding-left: 20px;
+  list-style-type: circle;
+  color: #777; /* Slightly lighter gray for nested list items */
+}
+
+.outer-column {
+  column-count: 2; /* Jumlah kolom */
+}
+
+.inner-column {
+  break-inside: avoid-column; /* Mencegah pemisahan item daftar di tengah kolom */
+}
+
+.popup {
+  display: none; /* Sembunyikan pop-up secara default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px; /* Lebar maksimum */
+  max-width: 80%; /* Lebar maksimum relatif terhadap layar */
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-trigger {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  color: #555;
+}
+
+
+#close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close-button:hover,
+#close-button:focus {
+  color: rgb(227, 227, 227);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.news-article {
+  background-color: #ffffffc0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.news-article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.news-article h3 {
+  margin: 10px 0;
+}
+
+.news-article p {
+  font-size: 14px;
+  color: #333;
+}
+
+.news-article a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+
+#about,
+#team,
+#map {
+  text-align: center;
+}
+section p.ringkasan {
+  font-style: italic;
+  font-size: 18px;
+  color: #ababab;
+}
+section .konten-isi p {
+  font-style: normal;
+}
+nav.putih {
+  background-color: #fff;
+}
+nav.putih .tombol-menu .garis {
+  background-color: #333;
+}
+nav.putih ul li a {
+  color: #333;
+}
+nav .logo img.hitam {
+  display: none;
+}
+section.abuabu {
+  background-color: #f5f6f6;
+}
+.support,
+.tim,
+.blog {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.support h6,
+.tim h6 {
+  margin: 0px;
+  margin-top: 20px;
+  padding: 0px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.support img {
+  width: 250px;
+  height: 250px;
+}
+.support div,
+.tim div {
+  text-align: center;
+  width: 26%;
+}
+section#gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+}
+
+/* Tambahkan ke file style.css */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom dengan lebar yang sama */
+  gap: 20px; /* Spasi antara kolom */
+}
+
+.grid-item {
+  background-color: #cecece; /* Warna latar belakang untuk memudahkan pembacaan */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+      grid-template-columns: 1fr; /* Satu kolom di perangkat dengan layar kecil */
+  }
+}
+
+.blog .area {
+  width: 47%;
+  box-shadow: 0px -10px 30px #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.blog div.area div {
+  width: 50%;
+}
+.blog .area .gambar {
+  border-radius: 5px 0px 0px 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+.blog .area .text article {
+  padding: 40px;
+}
+.blog .area .text article h4 {
+  margin: 0px;
+}
+.blog .area .text article a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+.blog .area .text article a:hover {
+  color: #ccc;
+}
+/* Gaya tambahan untuk footer */
+/* Gaya tambahan untuk footer */
+footer {
+background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Background gradient */
+color: #fff;
+padding: 20px 0;
+font-family: Arial, sans-serif;
+box-shadow: 0px -10px 30px #333; /* Shadow effect */
+}
+
+.footer-section h5 {
+font-size: 18px;
+border-bottom: 2px solid #fff; /* Border bottom */
+padding-bottom: 8px;
+}
+
+.contact-form {
+margin-top: 20px;
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+color: #fff;
+border: 1px solid rgba(255, 255, 255, 0.2); /* Transparent border */
+}
+
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+color: rgba(255, 255, 255, 0.5); /* Placeholder color */
+}
+
+.contact-form button[type="submit"] {
+background-color: #c86b85;
+color: #fff;
+border: none;
+border-radius: 4px;
+padding: 10px 20px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.contact-form button[type="submit"]:hover {
+background-color: #a24e67;
+}
+
